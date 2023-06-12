@@ -1,9 +1,9 @@
-# r3f-vite-starter
-A boilerplate to build R3F projects
+# r3f-portfolio
+My personal portfolio made with React Three Fiber
 
 ```
-yarn
-yarn dev
+npm i
+npm run dev
 ```
 
 
