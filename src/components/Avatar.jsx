@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useAnimations, useFBX, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useControls } from "leva";
+import { Leva, useControls } from "leva";
 import * as THREE from "three";
 
 export function Avatar(props) {
@@ -47,6 +47,7 @@ export function Avatar(props) {
 
   return (
     <group {...props} ref={group} dispose={null}>
+      <Leva hidden />
       <primitive object={nodes.Hips} />
       <skinnedMesh
         geometry={nodes.Wolf3D_Body.geometry}

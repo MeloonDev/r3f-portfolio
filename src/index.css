@@ -31,3 +31,95 @@ section {
   align-items: flex-start;
   justify-content: center;
 }
+
+/*Menu*/
+.menu-btn {
+  z-index: 99;
+  position: fixed;
+  top: 48px;
+  right: 48px;
+  padding: 12px;
+  width: 44px;
+  height: 44px;
+  background: royalblue;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+}
+
+.menu-btn div {
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 6px;
+}
+
+.menu-btn div:nth-child(1),
+.menu-btn div:nth-child(3) {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.menu-btn div.opened:nth-child(1) {
+  transform: rotate(45deg) translateY(1px);
+}
+
+.menu-btn div.opened:nth-child(3) {
+  transform: rotate(-45deg) translateY(-1px);
+}
+
+.menu-btn .middle {
+  margin: 4px 0;
+}
+
+.menu-btn .middle.opened {
+  display: none;
+}
+
+.menu-container {
+  z-index: 98;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.menu-container.opened {
+  width: 320px;
+}
+
+.menu-container .menu {
+  padding: 2rem;
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.menu-item {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  border: none;
+  background: none;
+  outline: none;
+  transition-property: color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  color: royalblue;
+}

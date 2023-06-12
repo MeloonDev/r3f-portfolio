@@ -1,4 +1,4 @@
-import { ContactShadows, Environment, Sky } from "@react-three/drei";
+import { ContactShadows, Environment } from "@react-three/drei";
 import { useControls } from "leva";
 import { Avatar } from "./Avatar";
 
@@ -12,7 +12,6 @@ export const Experience = () => {
 
   return (
     <>
-      <Sky />
       <Environment preset="sunset" />
       <group position-y={-1}>
         <ContactShadows
