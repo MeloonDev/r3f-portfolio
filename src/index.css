@@ -123,3 +123,28 @@ section {
 .menu-item:hover {
   color: royalblue;
 }
+
+/*Cursor*/
+.cursor {
+  z-index: 100;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  width: 0.75rem;
+  height: 0.75rem;
+  pointer-events: none;
+  background-color: rgb(99 102 241);
+  border-width: 4px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 50%;
+  transition-property: width, height, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+.cursor.active {
+  background-color: transparent;
+  border-color: rgb(49 46 129);
+  width: 1.4rem;
+  height: 1.4rem;
+}
