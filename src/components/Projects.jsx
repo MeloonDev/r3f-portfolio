@@ -10,31 +10,31 @@ export const projects = [
   {
     tittle: "Project 1",
     url: "https://finance-dashboard-pi.vercel.app/",
-    image: "../public/images/proj1.png",
+    image: "/images/proj1.png",
     description: "SCSS, React, Typescript",
   },
   {
     tittle: "Project 1",
     url: "https://finance-dashboard-pi.vercel.app/",
-    image: "../public/images/proj1.png",
+    image: "/images/proj1.png",
     description: "SCSS, React, Typescript",
   },
   {
     tittle: "Project 1",
     url: "https://finance-dashboard-pi.vercel.app/",
-    image: "../public/images/proj1.png",
+    image: "/images/proj1.png",
     description: "SCSS, React, Typescript",
   },
   {
     tittle: "Project 1",
     url: "https://finance-dashboard-pi.vercel.app/",
-    image: "../public/images/proj1.png",
+    image: "/images/proj1.png",
     description: "SCSS, React, Typescript",
   },
   {
     tittle: "Project 1",
     url: "https://finance-dashboard-pi.vercel.app/",
-    image: "../public/images/proj1.png",
+    image: "/images/proj1.png",
     description: "SCSS, React, Typescript",
   },
 ];
