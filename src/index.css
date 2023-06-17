@@ -36,8 +36,8 @@ section {
 .menu-btn {
   z-index: 99;
   position: fixed;
-  top: 48px;
-  right: 48px;
+  top: 18px;
+  right: 28px;
   padding: 12px;
   width: 44px;
   height: 44px;
@@ -120,8 +120,19 @@ section {
   cursor: pointer;
 }
 
-.menu-item:hover {
+.menu-item:hover,
+.menu-item.active {
   color: royalblue;
+}
+
+.menu-item .dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: royalblue;
+  margin-right: 0.5rem;
+  display: inline-block;
+  transform: translateY(-50%);
 }
 
 /*Cursor*/
@@ -147,4 +158,42 @@ section {
   border-color: rgb(49 46 129);
   width: 1.4rem;
   height: 1.4rem;
+}
+
+/*Project Section*/
+.projects {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.projects button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background-color: #fff;
+  color: royalblue;
+  transition-property: color fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.projects button:hover {
+  background-color: royalblue;
+  color: #fff;
+}
+
+.projects h2 {
+  /* align-self: flex-start; */
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  color: royalblue;
 }
