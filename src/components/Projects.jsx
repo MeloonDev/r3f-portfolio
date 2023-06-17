@@ -1,4 +1,4 @@
-import { Image, Text } from "@react-three/drei";
+import { ContactShadows, Image, Text } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
 import { motion } from "framer-motion-3d";
@@ -115,7 +115,7 @@ function Projects() {
             y: currentProject === index ? -0.2 : 0,
             z: currentProject === index ? -1 : -2.1,
             rotateX: currentProject === index ? 0 : -Math.PI / 3,
-            rotateZ: currentProject === index ? 0 : -0.1 * Math.PI,
+            rotateZ: currentProject === index ? 0 : 0.1 * Math.PI,
           }}
         >
           <Project project={project} highlighted={index === currentProject} />

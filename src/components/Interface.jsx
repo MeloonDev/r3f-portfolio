@@ -1,24 +1,29 @@
+import { useAtom } from "jotai";
+import { currentProjectAtom, projects } from "./Projects";
+
 const Section = (props) => {
   const { children } = props;
 
   return <section>{children}</section>;
 };
 
-function Interface() {
+function Interface(props) {
+  const { setSection } = props;
+
   return (
     <div className="wrapper">
-      <AboutSection />
+      <AboutSection setSection={setSection} />
       <SkillsSection />
-      <Section>
-        <h1>Projects</h1>
-      </Section>
+      <ProjectsSection />
       <ContactSection />
     </div>
   );
 }
 export default Interface;
 
-const AboutSection = () => {
+const AboutSection = (props) => {
+  const { setSection } = props;
+
   return (
     <Section>
       <h1>
@@ -27,7 +32,7 @@ const AboutSection = () => {
         <span>Mateusz Melaniuk</span>
       </h1>
       <p>Front-end developer from Poland</p>
-      <button>Contact me</button>
+      <button onClick={() => setSection(3)}>Contact me</button>
     </Section>
   );
 };
@@ -44,6 +49,28 @@ const SkillsSection = () => {
         <li>Redux</li>
         <li>Git</li>
       </ul>
+    </Section>
+  );
+};
+
+const ProjectsSection = () => {
+  const [currentProject, setCurrentProject] = useAtom(currentProjectAtom);
+
+  const nextProject = () => {
+    setCurrentProject((currentProject + 1) % projects.length);
+  };
+
+  const previousProject = () => {
+    setCurrentProject((currentProject - 1 + projects.length) % projects.length);
+  };
+
+  return (
+    <Section>
+      <div className="projects">
+        <button onClick={previousProject}>← Previous</button>
+        <h2>Projects</h2>
+        <button onClick={nextProject}>Next →</button>
+      </div>
     </Section>
   );
 };

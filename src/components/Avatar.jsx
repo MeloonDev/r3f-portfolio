@@ -1,15 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { useAnimations, useFBX, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useControls } from "leva";
 import * as THREE from "three";
 
 export function Avatar(props) {
   const { animation } = props;
-  const { cameraFollow, cursorFollow } = useControls({
-    cameraFollow: false,
-    cursorFollow: false,
-  });
 
   const group = useRef();
   const { nodes, materials } = useGLTF("models/avatar.glb");
@@ -17,25 +12,34 @@ export function Avatar(props) {
   const { animations: wavingAnimation } = useFBX("animations/Waving.fbx");
   const { animations: idleAnimation } = useFBX("animations/StandingIdle.fbx");
   const { animations: fallingAnimation } = useFBX("animations/FallingIdle.fbx");
+  const { animations: callingAnimation } = useFBX(
+    "animations/TalkingOnPhone.fbx"
+  );
 
   wavingAnimation[0].name = "Waving";
   idleAnimation[0].name = "Idle";
   fallingAnimation[0].name = "Falling";
+  callingAnimation[0].name = "Calling";
 
   const { actions } = useAnimations(
-    [wavingAnimation[0], idleAnimation[0], fallingAnimation[0]],
+    [
+      wavingAnimation[0],
+      idleAnimation[0],
+      fallingAnimation[0],
+      callingAnimation[0],
+    ],
     group
   );
 
-  useFrame((state) => {
-    if (cameraFollow) {
-      group.current.getObjectByName("Head").lookAt(state.camera.position);
-    }
-    if (cursorFollow) {
-      const target = new THREE.Vector3(state.mouse.x, state.mouse.y, 1);
-      group.current.getObjectByName("Neck").lookAt(target);
-    }
-  });
+  // useFrame((state) => {
+  //   if (cameraFollow) {
+  //     group.current.getObjectByName("Head").lookAt(state.camera.position);
+  //   }
+  //   if (cursorFollow) {
+  //     const target = new THREE.Vector3(state.mouse.x, state.mouse.y, 1);
+  //     group.current.getObjectByName("Neck").lookAt(target);
+  //   }
+  // });
 
   useEffect(() => {
     actions[animation].reset().fadeIn(0.3).play();

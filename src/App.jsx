@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Scroll, ScrollControls } from "@react-three/drei";
+import { Loader, Scroll, ScrollControls } from "@react-three/drei";
 import { MotionConfig } from "framer-motion";
 import { framerMotionConfig } from "./config";
 import { Experience } from "./components/Experience";
@@ -24,14 +24,16 @@ function App() {
         <ScrollControls pages={4} damping={0.1}>
           <ScrollManager section={section} onSectionChange={setSection} />
           <Scroll>
-            <Experience section={section} menuOpened={menuOpened} />
+            <Experience menuOpened={menuOpened} />
           </Scroll>
           <Scroll html>
-            <Interface />
+            <Interface setSection={setSection} />
           </Scroll>
         </ScrollControls>
       </Canvas>
+      <Loader />
       <Menu
+        section={section}
         onSectionChange={setSection}
         menuOpened={menuOpened}
         setMenuOpened={setMenuOpened}
