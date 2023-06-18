@@ -1,5 +1,6 @@
 import { useAtom } from "jotai";
 import { currentProjectAtom, projects } from "./Projects";
+import { motion } from "framer-motion";
 
 const Section = (props) => {
   const { children } = props;
@@ -12,7 +13,7 @@ function Interface(props) {
 
   return (
     <div className="wrapper">
-      <AboutSection setSection={setSection} />
+      <HomeSection setSection={setSection} />
       <SkillsSection />
       <ProjectsSection />
       <ContactSection />
@@ -21,34 +22,84 @@ function Interface(props) {
 }
 export default Interface;
 
-const AboutSection = (props) => {
+const HomeSection = (props) => {
   const { setSection } = props;
 
   return (
     <Section>
-      <h1>
-        Hi, I'm
-        <br />
-        <span>Mateusz Melaniuk</span>
-      </h1>
-      <p>Front-end developer from Poland</p>
-      <button onClick={() => setSection(3)}>Contact me</button>
+      <div className="home">
+        <h3>Hi, I'm</h3>
+        <h1>
+          <span>Mateusz</span>
+          <br />
+          <span>Melaniuk</span>
+        </h1>
+        <div className="line"></div>
+        <p>Front-end developer from Warsaw, Poland</p>
+        <motion.button
+          onClick={() => setSection(3)}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          Contact me<span></span>
+        </motion.button>
+      </div>
     </Section>
   );
 };
 
+const skills = [
+  {
+    title: "HTML",
+    level: 5,
+  },
+  { title: "CSS", level: 25 },
+  { title: "Sass", level: 55 },
+  { title: "JavaScript", level: 45 },
+  { title: "TypeScript", level: 5 },
+  { title: "React", level: 5 },
+  { title: "Redux", level: 5 },
+  { title: "Three.js", level: 5 },
+  { title: "Git", level: 5 },
+];
+
 const SkillsSection = () => {
   return (
     <Section>
-      <h2>Skills</h2>
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>React</li>
-        <li>Redux</li>
-        <li>Git</li>
-      </ul>
+      <div className="skills">
+        <h2>Skills</h2>
+        {skills.map((skill, index) => (
+          <div key={index} className="skill">
+            <h3>{skill.title}</h3>
+            <div className="level">
+              <div
+                className="level-bar"
+                style={{ width: `${skill.level}%` }}
+              ></div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="about">
+        <h2>About</h2>
+        <div className="about-fact">
+          <p className="icon">✌️</p>
+          <p>
+            At the age of 16, I had my first touch with programming, and I loved
+            it!
+          </p>
+        </div>
+        <div className="about-fact">
+          <p className="icon">❤️</p>
+          <p>
+            I love watching esports tournaments and playing squash on weekends!
+          </p>
+        </div>
+        <div className="about-fact">
+          <p className="icon">🚀</p>
+          <p>Now I am looking for new challenges to work as a web developer!</p>
+        </div>
+      </div>
     </Section>
   );
 };

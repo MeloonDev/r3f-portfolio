@@ -2,7 +2,7 @@ function Menu(props) {
   const { section, onSectionChange, menuOpened, setMenuOpened } = props;
 
   const menuItems = [
-    { index: 0, label: "About", onClick: () => onSectionChange(0) },
+    { index: 0, label: "Home", onClick: () => onSectionChange(0) },
     { index: 1, label: "Skills", onClick: () => onSectionChange(1) },
     { index: 2, label: "Projects", onClick: () => onSectionChange(2) },
     { index: 3, label: "Contact", onClick: () => onSectionChange(3) },
