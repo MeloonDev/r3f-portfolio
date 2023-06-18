@@ -1,4 +1,4 @@
-import { ContactShadows, useScroll } from "@react-three/drei";
+import { ContactShadows, Float, useScroll } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
 import { useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
@@ -7,6 +7,9 @@ import { framerMotionConfig } from "../config";
 import { Avatar } from "./Avatar";
 import Projects from "./Projects";
 import Background from "./Background";
+import { HTMLIcon } from "./Floating Icons/HTMLIcon";
+import { CSSIcon } from "./Floating Icons/CSSIcon";
+import { JSIcon } from "./Floating Icons/JSIcon";
 
 export const Experience = (props) => {
   const { menuOpened } = props;
@@ -72,20 +75,20 @@ export const Experience = (props) => {
         animate={"" + section}
         variants={{
           0: {
-            y: -1,
+            y: -0.7,
             x: 0,
-            z: 0,
+            z: 1,
             scaleX: 1.1,
             scaleY: 1.1,
             scaleZ: 1.1,
           },
           1: {
-            y: -viewport.height - 1,
-            x: 0,
+            y: -viewport.height - 1.3,
+            x: 1.4,
             z: 0,
-            scaleX: 1,
-            scaleY: 1,
-            scaleZ: 1,
+            scale: 0.9,
+            rotateY: -Math.PI * 0.05,
+            rotateX: -Math.PI * 0.03,
           },
           2: {
             y: section * -viewport.height - 1,
@@ -110,6 +113,44 @@ export const Experience = (props) => {
           color="#000000"
         /> */}
         <Avatar animation={characterAnimation} />
+      </motion.group>
+      <motion.group>
+        <Float
+          speed={5}
+          rotationIntensity={0.3}
+          floatIntensity={0.3}
+          floatingRange={[1, 1]}
+        >
+          <HTMLIcon
+            scale={4}
+            rotation-y={-Math.PI * 0.55}
+            position={[2.1, -viewport.height + 0.05, 0]}
+          />
+        </Float>
+        <Float
+          speed={5}
+          rotationIntensity={0.3}
+          floatIntensity={0.3}
+          floatingRange={[1, 1]}
+        >
+          <CSSIcon
+            scale={4}
+            rotation-y={-Math.PI * 0.55}
+            position={[0.6, -viewport.height + 0.1, 0]}
+          />
+        </Float>
+        <Float
+          speed={5}
+          rotationIntensity={0.3}
+          floatIntensity={0.3}
+          floatingRange={[1, 1]}
+        >
+          <JSIcon
+            scale={2.5}
+            rotation-y={-Math.PI * 0.55}
+            position={[1.2, -viewport.height + 0.5, 1.2]}
+          />
+        </Float>
       </motion.group>
       <Projects />
     </>
