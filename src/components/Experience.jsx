@@ -1,4 +1,10 @@
-import { ContactShadows, Float, useScroll } from "@react-three/drei";
+import {
+  ContactShadows,
+  Float,
+  MeshDistortMaterial,
+  MeshWobbleMaterial,
+  useScroll,
+} from "@react-three/drei";
 import { motion } from "framer-motion-3d";
 import { useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
@@ -7,9 +13,8 @@ import { framerMotionConfig } from "../config";
 import { Avatar } from "./Avatar";
 import Projects from "./Projects";
 import Background from "./Background";
-import { HTMLIcon } from "./Floating Icons/HTMLIcon";
-import { CSSIcon } from "./Floating Icons/CSSIcon";
-import { JSIcon } from "./Floating Icons/JSIcon";
+import { Perf } from "r3f-perf";
+import { Room } from "./Room";
 
 export const Experience = (props) => {
   const { menuOpened } = props;
@@ -62,6 +67,7 @@ export const Experience = (props) => {
 
   return (
     <>
+      {/* <Perf /> */}
       <Background />
       <ambientLight intensity={0.5} />
       <directionalLight position={[0, 10, 0]} intensity={0.8} />
@@ -114,44 +120,50 @@ export const Experience = (props) => {
         /> */}
         <Avatar animation={characterAnimation} />
       </motion.group>
-      <motion.group>
-        <Float
-          speed={5}
-          rotationIntensity={0.3}
-          floatIntensity={0.3}
-          floatingRange={[1, 1]}
-        >
-          <HTMLIcon
-            scale={4}
-            rotation-y={-Math.PI * 0.55}
-            position={[2.1, -viewport.height + 0.05, 0]}
+      {/* <motion.group
+        position={[0.4, -0.5, 0]}
+        animate={{
+          y: section === 1 ? -viewport.height - 0.5 : -0.5,
+        }}
+      >
+        <Float>
+        <mesh position={[2, -0.1, 0]} scale={0.5}>
+          <sphereGeometry />
+          <MeshDistortMaterial
+            opacity={0.8}
+            transparent
+            distort={0.4}
+            speed={4}
+            color="red"
           />
+        </mesh>
         </Float>
-        <Float
-          speed={5}
-          rotationIntensity={0.3}
-          floatIntensity={0.3}
-          floatingRange={[1, 1]}
-        >
-          <CSSIcon
-            scale={4}
-            rotation-y={-Math.PI * 0.55}
-            position={[0.6, -viewport.height + 0.1, 0]}
+        <Float>
+        <mesh position={[1.9, 0.8, -1]} scale={0.7}>
+          <sphereGeometry />
+          <MeshDistortMaterial
+            opacity={0.8}
+            transparent
+            distort={0.8}
+            speed={6}
+            color="#D58CC9"
           />
+        </mesh>
         </Float>
-        <Float
-          speed={5}
-          rotationIntensity={0.3}
-          floatIntensity={0.3}
-          floatingRange={[1, 1]}
-        >
-          <JSIcon
-            scale={2.5}
-            rotation-y={-Math.PI * 0.55}
-            position={[1.2, -viewport.height + 0.5, 1.2]}
+        <Float>
+        <mesh position={[0.9, 0.2, 0]} scale={0.5}>
+          <sphereGeometry />
+          <MeshDistortMaterial
+            opacity={0.8}
+            transparent
+            distort={0.6}
+            speed={5}
+            color="yellow"
           />
+        </mesh>
         </Float>
-      </motion.group>
+      </motion.group> */}
+      <Room />
       <Projects />
     </>
   );
