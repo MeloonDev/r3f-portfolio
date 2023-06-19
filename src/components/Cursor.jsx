@@ -43,7 +43,9 @@ function Cursor() {
         e.target.tagName.toLowerCase() === "button" ||
         e.target.parentElement.tagName.toLowerCase() === "button" ||
         e.target.tagName.toLowerCase() === "input" ||
-        e.target.tagName.toLowerCase() === "textarea"
+        e.target.tagName.toLowerCase() === "textarea" ||
+        e.target.tagName.toLowerCase() === "path" ||
+        e.target.tagName.toLowerCase() === "svg"
       ) {
         setHoverButton(true);
       } else {
