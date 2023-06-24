@@ -1,4 +1,4 @@
-import { ContactShadows, Image, Text } from "@react-three/drei";
+import { Image, Text } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
 import { motion } from "framer-motion-3d";
@@ -77,7 +77,7 @@ const Project = (props) => {
         position={[-1, -0.4, 0]}
       >
         {project.tittle}
-      </Text>{" "}
+      </Text>
       <Text
         maxWidth={2}
         anchorX={"left"}
@@ -93,12 +93,26 @@ const Project = (props) => {
 
 export const currentProjectAtom = atom(Math.floor(projects.length / 2));
 
-function Projects() {
+function Projects(props) {
+  const { section } = props;
+
   const { viewport } = useThree();
   const [currentProject] = useAtom(currentProjectAtom);
 
   return (
-    <group position-y={-viewport.height * 2}>
+    <motion.group
+      position-y={-viewport.height * 2}
+      initial={{
+        scale: 0,
+      }}
+      animate={{
+        scale: section === 2 ? 1 : 0,
+        transition: {
+          ...framerMotionConfig,
+          delay: 0.5,
+        },
+      }}
+    >
       {projects.map((project, index) => (
         <motion.group
           scale={0.6}
@@ -121,7 +135,7 @@ function Projects() {
           <Project project={project} highlighted={index === currentProject} />
         </motion.group>
       ))}
-    </group>
+    </motion.group>
   );
 }
 export default Projects;

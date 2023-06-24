@@ -104,7 +104,7 @@ export const Experience = (props) => {
           },
           3: {
             y: section * -viewport.height - 0.3,
-            x: 0.6,
+            x: 0.4,
             z: 3,
             rotateY: -Math.PI * 0.2,
           },
@@ -163,8 +163,8 @@ export const Experience = (props) => {
         </mesh>
         </Float>
       </motion.group> */}
-      <Room />
-      <Projects />
+      <Room section={section} />
+      <Projects section={section} />
     </>
   );
 };

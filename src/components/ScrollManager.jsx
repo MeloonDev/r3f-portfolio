@@ -42,6 +42,18 @@ function ScrollManager(props) {
     ) {
       onSectionChange(0);
     }
+
+    // console.log(data.scroll.current);
+    if (currentSection === 1) {
+      onSectionChange(1);
+    }
+    if (currentSection === 2) {
+      onSectionChange(2);
+    }
+    if (currentSection === 3) {
+      onSectionChange(3);
+    }
+
     lastScroll.current = data.scroll.current;
   });
 

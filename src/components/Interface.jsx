@@ -93,18 +93,13 @@ const HomeSection = (props) => {
 };
 
 const skills = [
-  {
-    title: "HTML",
-    level: 5,
-  },
-  { title: "CSS", level: 25 },
-  { title: "Sass", level: 55 },
-  { title: "JavaScript", level: 45 },
-  { title: "TypeScript", level: 5 },
-  { title: "React", level: 5 },
-  { title: "Redux", level: 5 },
-  { title: "Three.js", level: 5 },
-  { title: "Git", level: 5 },
+  { title: "HTML / CSS", level: 95 },
+  { title: "JavaScript", level: 85 },
+  { title: "React", level: 75 },
+  { title: "TypeScript", level: 60 },
+  { title: "Three.js / React Three Fiber", level: 55 },
+  { title: "3D modelling", level: 45 },
+  { title: "Photoshop / Drawing", level: 40 },
 ];
 
 const SkillsSection = () => {
@@ -139,7 +134,7 @@ const SkillsSection = () => {
         ))}
       </div>
       <div className="about">
-        <h2>About</h2>
+        <h2>About me!</h2>
         <div className="about-fact">
           <motion.p
             className="icon"
