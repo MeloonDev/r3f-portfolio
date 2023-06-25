@@ -15,11 +15,13 @@ export function Avatar(props) {
   const { animations: callingAnimation } = useFBX(
     "animations/TalkingOnPhone.fbx"
   );
+  const { animations: sittingAnimation } = useFBX("animations/SittingIdle.fbx");
 
   wavingAnimation[0].name = "Waving";
   idleAnimation[0].name = "Idle";
   fallingAnimation[0].name = "Falling";
   callingAnimation[0].name = "Calling";
+  sittingAnimation[0].name = "Sitting";
 
   const { actions } = useAnimations(
     [
@@ -27,6 +29,7 @@ export function Avatar(props) {
       idleAnimation[0],
       fallingAnimation[0],
       callingAnimation[0],
+      sittingAnimation[0],
     ],
     group
   );

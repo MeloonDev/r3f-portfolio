@@ -1,8 +1,10 @@
 import {
   ContactShadows,
   Float,
+  Html,
   MeshDistortMaterial,
   MeshWobbleMaterial,
+  Svg,
   useScroll,
 } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
@@ -26,7 +28,7 @@ export const Experience = (props) => {
   const [section, setSection] = useState(0);
 
   const [characterAnimation, setCharacterAnimation] = useState("Waving");
-  const animations = ["Waving", "Idle", "Idle", "Calling"];
+  const animations = ["Waving", "Sitting", "Idle", "Calling"];
   useEffect(() => {
     setCharacterAnimation("Falling");
     setTimeout(() => {
@@ -89,12 +91,12 @@ export const Experience = (props) => {
             scaleZ: 1.1,
           },
           1: {
-            y: -viewport.height - 1.3,
-            x: 1.4,
+            y: -viewport.height - 1,
+            x: 1,
             z: 0,
-            scale: 0.9,
+            scale: 1.4,
             rotateY: -Math.PI * 0.05,
-            rotateX: -Math.PI * 0.03,
+            rotateX: -Math.PI * 0.06,
           },
           2: {
             y: section * -viewport.height - 1,
@@ -164,6 +166,27 @@ export const Experience = (props) => {
         </Float>
       </motion.group> */}
       <Room section={section} />
+      {/* <Svg
+        src="/images/cloud.svg"
+        position={[0, -viewport.height + 1, 0]}
+        scale={0.006}
+      /> */}
+      <Html
+        // scale={0.2}
+        position={[0.8, -viewport.height - 2.2, 0]}
+        zIndexRange={[50, 0]}
+      >
+        <div className="cloud">
+          <img src="/images/cloud.svg" alt="" />
+          <div className="about-fact">
+            <p>😃</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo,
+              excepturi!
+            </p>
+          </div>
+        </div>
+      </Html>
       <Projects section={section} />
     </>
   );
