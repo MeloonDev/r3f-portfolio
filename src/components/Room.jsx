@@ -35,3 +35,4 @@ export function Room(props) {
 }
 
 useGLTF.preload("models/newRoom.glb");
+useTexture.preload("models/baked.jpg");

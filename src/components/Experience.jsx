@@ -177,7 +177,7 @@ export const Experience = (props) => {
         zIndexRange={[50, 0]}
       >
         <div className="cloud">
-          <img src="/images/cloud.svg" alt="" />
+          {/* <img src="/images/cloud.svg" alt="" /> */}
           <div className="about-fact">
             <p>😃</p>
             <p>
