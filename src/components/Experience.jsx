@@ -84,11 +84,12 @@ export const Experience = (props) => {
         variants={{
           0: {
             y: -0.7,
-            x: 0,
+            x: -0.5,
             z: 1,
             scaleX: 1.1,
             scaleY: 1.1,
             scaleZ: 1.1,
+            rotateY: Math.PI * 0.04,
           },
           1: {
             y: -viewport.height - 1,
@@ -166,27 +167,6 @@ export const Experience = (props) => {
         </Float>
       </motion.group> */}
       <Room section={section} />
-      {/* <Svg
-        src="/images/cloud.svg"
-        position={[0, -viewport.height + 1, 0]}
-        scale={0.006}
-      /> */}
-      <Html
-        // scale={0.2}
-        position={[0.8, -viewport.height - 2.2, 0]}
-        zIndexRange={[50, 0]}
-      >
-        <div className="cloud">
-          {/* <img src="/images/cloud.svg" alt="" /> */}
-          <div className="about-fact">
-            <p>😃</p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo,
-              excepturi!
-            </p>
-          </div>
-        </div>
-      </Html>
       <Projects section={section} />
     </>
   );

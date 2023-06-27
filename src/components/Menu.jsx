@@ -17,10 +17,6 @@ function Menu(props) {
       </button>
       <div className={menuOpened ? "opened menu-container" : "menu-container"}>
         <div className="menu">
-          {/* <MenuItem label="About" onClick={() => onSectionChange(0)} />
-          <MenuItem label="Skills" onClick={() => onSectionChange(1)} />
-          <MenuItem label="Projects" onClick={() => onSectionChange(2)} />
-          <MenuItem label="Contact" onClick={() => onSectionChange(3)} /> */}
           {menuItems.map((item) => (
             <MenuItem
               key={item.index}
@@ -38,13 +34,9 @@ function Menu(props) {
 export default Menu;
 
 const MenuItem = (props) => {
-  const { index, section, label, onClick } = props;
+  const { label, onClick } = props;
   return (
-    <button
-      onClick={onClick}
-      className={section === index ? "menu-item active" : "menu-item"}
-    >
-      {section === index ? <span className="dot"></span> : ""}
+    <button onClick={onClick} className="menu-item">
       {label}
     </button>
   );

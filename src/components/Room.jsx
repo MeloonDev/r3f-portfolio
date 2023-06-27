@@ -1,5 +1,4 @@
-import React, { useRef } from "react";
-import { useGLTF, useTexture } from "@react-three/drei";
+import { useGLTF, useTexture, useVideoTexture } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
 import { framerMotionConfig } from "../config";
 
@@ -9,12 +8,13 @@ export function Room(props) {
   const { nodes } = useGLTF("models/newRoom.glb");
   const bakedTexture = useTexture("models/baked.jpg");
   bakedTexture.flipY = false;
+  const videoTexture = useVideoTexture("images/coding.mp4");
 
   return (
     <motion.group
       {...props}
       dispose={null}
-      position={[1.5, -0.1, -0.14]}
+      position={[1.4, -0.1, -0.14]}
       rotation={[-Math.PI * 0.04, -Math.PI * 0.7, 0]}
       initial={{
         scale: 0,
@@ -29,6 +29,10 @@ export function Room(props) {
     >
       <mesh geometry={nodes.baked.geometry}>
         <meshBasicMaterial map={bakedTexture} />
+      </mesh>
+      <mesh position={[-0.29, 0.425, -0.005]} rotation={[0, Math.PI * 0.5, 0]}>
+        <planeGeometry args={[0.79, 0.49]} />
+        <meshBasicMaterial map={videoTexture} toneMapped={false} />
       </mesh>
     </motion.group>
   );

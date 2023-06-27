@@ -101,7 +101,8 @@ function Projects(props) {
 
   return (
     <motion.group
-      position-y={-viewport.height * 2}
+      position-y={-viewport.height * 2.3}
+      position-z={-viewport.height * 0.6}
       initial={{
         scale: 0,
       }}
