@@ -17,6 +17,7 @@ import Projects from "./Projects";
 import Background from "./Background";
 import { Perf } from "r3f-perf";
 import { Room } from "./Room";
+import Star from "./Star";
 
 export const Experience = (props) => {
   const { menuOpened } = props;
@@ -93,16 +94,16 @@ export const Experience = (props) => {
           },
           1: {
             y: -viewport.height - 1,
-            x: 1,
+            x: 0.2,
             z: 0,
             scale: 1.4,
-            rotateY: -Math.PI * 0.05,
+
             rotateX: -Math.PI * 0.06,
           },
           2: {
-            y: section * -viewport.height - 1,
-            x: -2,
-            z: 0,
+            y: section * -viewport.height - 2,
+            x: -1.5,
+            z: -2,
             rotateY: Math.PI * 0.5,
           },
           3: {
@@ -113,60 +114,54 @@ export const Experience = (props) => {
           },
         }}
       >
-        {/* <ContactShadows
-          opacity={0.4}
-          scale={10}
-          blur={1}
-          far={10}
-          resolution={256}
-          color="#000000"
-        /> */}
         <Avatar animation={characterAnimation} />
       </motion.group>
-      {/* <motion.group
-        position={[0.4, -0.5, 0]}
-        animate={{
-          y: section === 1 ? -viewport.height - 0.5 : -0.5,
-        }}
-      >
-        <Float>
-        <mesh position={[2, -0.1, 0]} scale={0.5}>
-          <sphereGeometry />
-          <MeshDistortMaterial
-            opacity={0.8}
-            transparent
-            distort={0.4}
-            speed={4}
-            color="red"
-          />
-        </mesh>
-        </Float>
-        <Float>
-        <mesh position={[1.9, 0.8, -1]} scale={0.7}>
-          <sphereGeometry />
-          <MeshDistortMaterial
-            opacity={0.8}
-            transparent
-            distort={0.8}
-            speed={6}
-            color="#D58CC9"
-          />
-        </mesh>
-        </Float>
-        <Float>
-        <mesh position={[0.9, 0.2, 0]} scale={0.5}>
-          <sphereGeometry />
-          <MeshDistortMaterial
-            opacity={0.8}
-            transparent
-            distort={0.6}
-            speed={5}
-            color="yellow"
-          />
-        </mesh>
-        </Float>
-      </motion.group> */}
       <Room section={section} />
+      <Float
+        speed={3} // Animation speed, defaults to 1
+        rotationIntensity={0.5} // XYZ rotation intensity, defaults to 1
+        floatIntensity={0.3} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+        floatingRange={[-0.1, 0.1]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
+      >
+        <Star
+          section={section}
+          position={[-0.4, -viewport.height + 0.5, 0]}
+          transition={{
+            ...framerMotionConfig,
+            delay: 0.9,
+          }}
+        />
+      </Float>
+      <Float
+        speed={3} // Animation speed, defaults to 1
+        rotationIntensity={0.5} // XYZ rotation intensity, defaults to 1
+        floatIntensity={0.3} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+        floatingRange={[-0.1, 0.1]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
+      >
+        <Star
+          section={section}
+          position={[0.15, -viewport.height + 0.8, 0]}
+          transition={{
+            ...framerMotionConfig,
+            delay: 1.2,
+          }}
+        />
+      </Float>
+      <Float
+        speed={3} // Animation speed, defaults to 1
+        rotationIntensity={0.5} // XYZ rotation intensity, defaults to 1
+        floatIntensity={0.2} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+        floatingRange={[-0.1, 0.1]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
+      >
+        <Star
+          section={section}
+          position={[0.75, -viewport.height + 0.5, 0]}
+          transition={{
+            ...framerMotionConfig,
+            delay: 1.5,
+          }}
+        />
+      </Float>
       <Projects section={section} />
     </>
   );

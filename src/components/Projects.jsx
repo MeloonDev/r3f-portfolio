@@ -59,6 +59,12 @@ const Project = (props) => {
         position-z={-0.001}
         onClick={() => window.open(project.url, "_blank")}
         ref={background}
+        onPointerEnter={() => {
+          document.body.style.cursor = "pointer";
+        }}
+        onPointerLeave={() => {
+          document.body.style.cursor = "default";
+        }}
       >
         <planeGeometry args={[2.2, 2]} />
         <meshBasicMaterial color="black" transparent opacity={0.4} />
@@ -102,7 +108,7 @@ function Projects(props) {
   return (
     <motion.group
       position-y={-viewport.height * 2.3}
-      position-z={-viewport.height * 0.6}
+      position-z={-viewport.height * 0.7}
       initial={{
         scale: 0,
       }}

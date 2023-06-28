@@ -113,6 +113,7 @@ const SkillsSection = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 + index * 0.2 }}
+              viewport={{ once: true }}
             >
               {skill.title}
             </motion.h3>
@@ -121,6 +122,7 @@ const SkillsSection = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 + index * 0.2 }}
+              viewport={{ once: true }}
             >
               <motion.div
                 className="level-bar"
@@ -128,6 +130,7 @@ const SkillsSection = () => {
                 initial={{ scaleX: 0, originX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 transition={{ duration: 1, delay: 1 + index * 0.2 }}
+                viewport={{ once: true }}
               ></motion.div>
             </motion.div>
           </div>
@@ -141,6 +144,7 @@ const SkillsSection = () => {
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 1 }}
+            viewport={{ once: true }}
           >
             ✌️
           </motion.p>
@@ -148,6 +152,7 @@ const SkillsSection = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.2 }}
+            viewport={{ once: true }}
           >
             At the age of 16, I had my first touch with programming, and I loved
             it!
@@ -159,6 +164,7 @@ const SkillsSection = () => {
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 1 + 0.2 }}
+            viewport={{ once: true }}
           >
             ❤️
           </motion.p>
@@ -166,6 +172,7 @@ const SkillsSection = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.2 + 0.2 }}
+            viewport={{ once: true }}
           >
             I love watching esports tournaments and playing squash on weekends!
           </motion.p>
@@ -176,6 +183,7 @@ const SkillsSection = () => {
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 1 + 0.4 }}
+            viewport={{ once: true }}
           >
             🚀
           </motion.p>
@@ -183,6 +191,7 @@ const SkillsSection = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.2 + 0.4 }}
+            viewport={{ once: true }}
           >
             Now I am looking for new challenges to work as a web developer!
           </motion.p>
@@ -206,9 +215,9 @@ const ProjectsSection = () => {
   return (
     <Section>
       <div className="projects">
-        <button onClick={previousProject}>← Previous</button>
+        <button onClick={previousProject}>&#60;</button>
         <h2>Projects</h2>
-        <button onClick={nextProject}>Next →</button>
+        <button onClick={nextProject}>&#62;</button>
       </div>
     </Section>
   );
@@ -241,7 +250,9 @@ const ContactSection = () => {
   return (
     <Section>
       <div className="contact">
-        <h2>Contact me 👋</h2>
+        <h2>
+          Contact me <span>👋</span>
+        </h2>
         <form ref={form} onSubmit={sendEmail}>
           <input type="text" name="name" placeholder="Name:" required />
           <input type="email" name="email" placeholder="Email:" required />

@@ -8,7 +8,7 @@ export function Room(props) {
   const { nodes } = useGLTF("models/newRoom.glb");
   const bakedTexture = useTexture("models/baked.jpg");
   bakedTexture.flipY = false;
-  const videoTexture = useVideoTexture("images/coding.mp4");
+  const videoTexture = useVideoTexture("images/video.mp4");
 
   return (
     <motion.group
