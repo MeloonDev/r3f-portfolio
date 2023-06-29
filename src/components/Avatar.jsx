@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import { useAnimations, useFBX, useGLTF } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
-import * as THREE from "three";
 
 export function Avatar(props) {
   const { animation } = props;
@@ -33,16 +31,6 @@ export function Avatar(props) {
     ],
     group
   );
-
-  // useFrame((state) => {
-  //   if (cameraFollow) {
-  //     group.current.getObjectByName("Head").lookAt(state.camera.position);
-  //   }
-  //   if (cursorFollow) {
-  //     const target = new THREE.Vector3(state.mouse.x, state.mouse.y, 1);
-  //     group.current.getObjectByName("Neck").lookAt(target);
-  //   }
-  // });
 
   useEffect(() => {
     actions[animation].reset().fadeIn(0.3).play();

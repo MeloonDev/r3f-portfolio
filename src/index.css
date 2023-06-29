@@ -125,6 +125,13 @@ section {
   opacity: 0.4;
 }
 
+@media (max-width: 768px) {
+  .loading-screen-text-wrapper {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
 /*Menu*/
 .menu-btn {
   z-index: 99;
@@ -285,8 +292,9 @@ section {
   background-color: #af4acb;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .home {
+    margin-top: 2rem;
     flex-grow: 1;
   }
 
@@ -699,5 +707,3 @@ section {
     font-size: 1.9rem;
   }
 }
-
-/*Html in R3F*/

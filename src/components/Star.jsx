@@ -1,6 +1,5 @@
 import { useGLTF } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
-import { framerMotionConfig } from "../config";
 
 export default function Star(props) {
   const { section } = props;

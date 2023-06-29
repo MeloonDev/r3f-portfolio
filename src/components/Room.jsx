@@ -3,7 +3,7 @@ import { motion } from "framer-motion-3d";
 import { framerMotionConfig } from "../config";
 
 export function Room(props) {
-  const { section } = props;
+  const { section, responsiveRatio, roomScaleRatio } = props;
 
   const { nodes } = useGLTF("models/newRoom.glb");
   const bakedTexture = useTexture("models/baked.jpg");
@@ -14,13 +14,12 @@ export function Room(props) {
     <motion.group
       {...props}
       dispose={null}
-      position={[1.4, -0.1, -0.14]}
       rotation={[-Math.PI * 0.04, -Math.PI * 0.7, 0]}
       initial={{
         scale: 0,
       }}
       animate={{
-        scale: section === 0 ? 1 : 0,
+        scale: section === 0 ? roomScaleRatio : 0,
         transition: {
           ...framerMotionConfig,
           delay: 1.2,

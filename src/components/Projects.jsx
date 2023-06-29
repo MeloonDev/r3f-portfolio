@@ -100,7 +100,7 @@ const Project = (props) => {
 export const currentProjectAtom = atom(Math.floor(projects.length / 2));
 
 function Projects(props) {
-  const { section } = props;
+  const { section, isMobile } = props;
 
   const { viewport } = useThree();
   const [currentProject] = useAtom(currentProjectAtom);
@@ -113,7 +113,7 @@ function Projects(props) {
         scale: 0,
       }}
       animate={{
-        scale: section === 2 ? 1 : 0,
+        scale: section === 2 ? (isMobile ? 0.9 : 1) : 0,
         transition: {
           ...framerMotionConfig,
           delay: 0.5,
