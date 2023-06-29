@@ -262,13 +262,16 @@ const ContactSection = () => {
               <a href="https://github.com/MeloonDev" target="_blank">
                 <BsGithub />
               </a>
-              <a href="https://github.com/MeloonDev" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/mateusz-melaniuk-8440b1248/"
+                target="_blank"
+              >
                 <BsLinkedin />
               </a>
-              <a href="https://github.com/MeloonDev" target="_blank">
+              <a href="https://twitter.com/MeloonDev" target="_blank">
                 <BsTwitter />
               </a>
-              <a href="https://github.com/MeloonDev" target="_blank">
+              <a href="https://.pinterest.com/MeloonDev/" target="_blank">
                 <BsPinterest />
               </a>
             </div>
